@@ -5,6 +5,7 @@
 # /auth/login
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import register
 import login
 import jwt
@@ -14,6 +15,7 @@ load_dotenv()
 token_secret = os.getenv('TOKEN_SECRET')
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods= ['GET'])
 def home():
